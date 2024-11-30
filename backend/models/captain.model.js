@@ -11,7 +11,7 @@ const captainSchema = new mongoose.Schema({
         },
         lastName: {
             type: String,
-            minlength: [3, ' Last name must be at least 3 characters long '];
+            minlength: [3, ' Last name must be at least 3 characters long '],
         }
     },
 
@@ -73,7 +73,7 @@ const captainSchema = new mongoose.Schema({
 
 })
 
-captainModel.methods.generateAuthtoken = function() {
+captainSchema.methods.generateAuthtoken = function() {
     const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET, { expiresIn: '24h'});
     return token;
 }
