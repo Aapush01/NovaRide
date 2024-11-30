@@ -8,7 +8,9 @@ const authMiddleware = require("../middlewares/auth.middleware");
 router.post(
   "/register",
   [
-    body("email").isEmail().withMessage("Invalid Email"),
+    body("email")
+      .isEmail()
+      .withMessage("Invalid Email"),
     body("fullName.firstName")
       .isLength({ min: 3 })
       .withMessage("First name must be at least 3 characters long"),
