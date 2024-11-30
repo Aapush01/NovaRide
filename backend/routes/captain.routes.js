@@ -24,7 +24,7 @@ router.post(
           .isInt({ min: 1 })
           .withMessage('Capacity must be at least 1'),
         body('vehicle.vehicleType')
-          .isInt(['car', 'motocycle', 'auto'])
+          .isIn(['car', 'motorcycle', 'auto'])
           .withMessage('Invalid vehicle type')
     ],
     captainController.registerCaptain
