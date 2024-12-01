@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div className='bg-custom-bg bg-cover bg-center h-screen pt-8  flex justify-between flex-col w-full bg-red-400'>
+    <div className='bg-custom-bg bg-cover bg-center h-screen pt-8  flex justify-between flex-col w-full'>
       <img className='w-20 ml-8 rounded-full' src="https://files.oaiusercontent.com/file-LDiGuUPyYcgY1qUEbgGkQS?se=2024-12-01T15%3A51%3A10Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D59ab5e02-66b4-4f64-8839-510abb7ad9a5.webp&sig=ytbTH7d5/uOAQfVR7N9I2YjljJeFUDpc0gYUKoHetAU%3D" alt="NoraRide_logo" />
       <div className='bg-white py-4 px-4 pb-5'>
         <h2 className='text-2xl font-bold '>Get Started with NovaRide</h2>
