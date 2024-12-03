@@ -79,7 +79,7 @@ const CaptainSignup = () => {
       <button
          className='bg-[#111] text-white font-semibold mb-4 rounded px-4 py-2 w-full text-lg placeholder:text-sm'
       >
-         Signup
+         Create account as a Captain 
       </button>
         <p
          className='text-center'
