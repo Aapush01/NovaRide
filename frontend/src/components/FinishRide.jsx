@@ -1,16 +1,22 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const LookingForDriver = (props) => {
+const FinishRide = (props) => {
     return (
-        <div>
+        <div className='bg-white w-full p-4'>
             <h5 className='p-1 text-center w-[93%] absolute top-0 ' onClick={() => {
-                props.setVehicleFound(false)
+                props.setFinishRidePanel(false)
             }} ><i className="text-3xl text-gray-600 ri-arrow-down-wide-fill"></i></h5>
-            <h3 className='text-2xl font-semibold mb-4'>Looking for a driver...</h3>
+            <h3 className='mt-6 text-2xl font-semibold mb-4'>Finish This Ride.</h3>
+            <div className='flex items-center justify-between mt-4 bg-yellow-400 rounded-lg p-3'>
+                <div className='flex items-center gap-3'>
+                    <img className='w-16 h-16 rounded-full object-cover' src="https://imgs.search.brave.com/xkaxx3IhWSDjuuaMfGzJQnejF3vct-cSVuih64ZLmGs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jbGlw/YXJ0LWxpYnJhcnku/Y29tL2ltYWdlX2dh/bGxlcnkyL0hhcHB5/LUdpcmwtRnJlZS1Q/TkctSW1hZ2UucG5n" alt="" />
+                    <h2 className='text-xl font-medium'>Aishwarama</h2>
+                </div>
+                <h5 className='text-lg font-medium'>3.4 KM</h5>
+            </div>
 
             <div className='flex flex-col justify-between items-center gap-2'>
-                <img className='h-20' src="https://imgs.search.brave.com/KqcCNA9kgrqbzMEJo0T2zTKiuk8pmfhbYwZKJMI8Keg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dWJlci1hc3NldHMu/Y29tL2ltYWdlL3Vw/bG9hZC9mX2F1dG8s/cV9hdXRvOmVjbyxj/X2ZpbGwsaF8zNjgs/d181NTIvdjE3MTIw/MjczMDcvYXNzZXRz/LzQyL2ViODVjMy1l/MmRjLTRlOTUtYTcw/ZC0yMmVlNGYwODAx/NWYvb3JpZ2luYWwv/U2NyZWVuc2hvdC0y/MDI0LTA0LTAxLWF0/LTkuMDguMDdwLm0u/LnBuZw" alt="car" />
                 <div className='w-full mt-5'>
                     <div className='flex items-center gap-3 p-2 border-b-2'>
                         <i className="text-lg ri-user-location-line"></i>
@@ -34,10 +40,19 @@ const LookingForDriver = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className='mt-4 w-full'>
 
+
+                    <Link to={'/captain-home'} className=' mt-5 flex justify-center bg-green-600 p-3 text-white text-xl font-semibold rounded-lg'>
+                        Finish Ride
+                    </Link>
+                    <p className='mt-2 text-sm font-semibold text-center text-red-600'>Click 'Finish Ride' if the payment has been completed.</p>
+
+
+                </div>
             </div>
         </div>
     )
 }
 
-export default LookingForDriver
+export default FinishRide

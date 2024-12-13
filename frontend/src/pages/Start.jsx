@@ -1,5 +1,5 @@
 import React from 'react'
-import  NovaRide_logo  from '../assets/NovaRide_logo.webp'
+import NovaRide_logo from '../assets/NovaRide_logo.webp'
 import { Link } from 'react-router-dom'
 
 const Start = () => {

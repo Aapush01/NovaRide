@@ -9,7 +9,7 @@ const UserProtectWrapper = ({
     const token = localStorage.getItem('token')
     const navigate = useNavigate()
     const { user, setUser } = useContext(UserDataContext)
-    const [ isLoading, setIsLoading ] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         if (!token) {
@@ -31,7 +31,7 @@ const UserProtectWrapper = ({
                 localStorage.removeItem('token')
                 navigate('/login')
             })
-    }, [ token ])
+    }, [token])
 
     if (isLoading) {
         return (
