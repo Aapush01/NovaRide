@@ -1,4 +1,5 @@
 import NovaRide_logo from '../assets/NovaRide_logo.webp'
+import Home_Img from '../assets/Home_Img.webp'
 import React, { useState, useRef } from 'react'
 import CaptainDetails from '../components/CaptainDetails'
 import RidePopUp from '../components/RidePopUp'
@@ -42,7 +43,7 @@ const CaptainHome = () => {
     <div className='h-screen'>
       <img className='w-20 mb-2 rounded-full absolute left-5 top-5' src={NovaRide_logo} alt="NovaRide_logo" />
       <div className='h-3/5'>
-        <img className='h-full w-full object-cover' src="https://imgs.search.brave.com/d0X_YC5CTyk2e7Z2I4gVmfhZ5OBQ7iXVkKPJLoa8XqM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naXRo/dWIuY29tL01pbmRv/cmtzT3BlblNvdXJj/ZS9VYmVyLUNhci1B/bmltYXRpb24tQW5k/cm9pZC9yYXcvbWFz/dGVyL2Fzc2V0cy9o/b3ctdG8tYWRkLXVi/ZXItY2FyLWFuaW1h/dGlvbi1pbi1hbmRy/b2lkLWFwcC1naWYu/Z2lm.gif" alt="map" />
+        <img className='h-full w-full object-cover' src={Home_Img} alt="map" />
       </div>
       <div className='h-2/5 p-6'>
         <CaptainDetails />

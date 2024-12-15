@@ -1,4 +1,5 @@
 import NovaRide_logo from '../assets/NovaRide_logo.webp'
+import Home_Img from '../assets/Home_Img.webp'
 import React, { useState, useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -103,7 +104,7 @@ const Home = () => {
     <div className='h-screen relative overflow-hidden'>
       <img className='w-20 mb-2 rounded-full absolute left-5 top-5' src={NovaRide_logo} alt="NovaRide_logo" />
       <div>
-        <img className='h-screen w-full object-cover ' src="https://files.oaiusercontent.com/file-FS64VtFM9SfMYgrSXGXPDy?se=2024-12-07T16%3A20%3A23Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D0db7b789-4dff-497c-b37d-828527ad71a7.webp&sig=4oJtG4rW/cfLPJ9%2B7eO2plGgMY1BGlISPxSFxKdBWZM%3D" alt="" />
+        <img className='h-screen w-full object-cover ' src={Home_Img} alt="" />
 
       </div>
       <div className='flex flex-col justify-end h-screen absolute top-0 w-full'>
