@@ -42,7 +42,7 @@ const rideSchema = new mongoose.Schema({
     signature: {
         type: String,
     }, 
-    opt: {
+    otp: {
         type: String,
         select: false,
         required: true,
