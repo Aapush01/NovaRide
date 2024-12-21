@@ -28,6 +28,8 @@ const Home = () => {
   const [destinationSuggestions, setDestinationSuggestions] = useState([])
   const [activeField, setActiveField] = useState(null)
   const waitingForDriverRef = useRef(null)
+  const [ fare, setFare ] = useState({})
+  const [ vehicleType, setVehicleType ] = useState(null)
 
   const handlePickupChange = async (e) => {
     setPickup(e.target.value)
@@ -132,10 +134,34 @@ const Home = () => {
     }
   }, [waitingForDriver])
 
-  function findTrip() {
+  async function findTrip() {
     setVehiclePanel(true)
     setPanelOpen(false)
+
+    const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/rides/get-fare`, {
+      params: { pickup, destination },
+      headers: {
+         Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+
+    setFare(response.data)
+
   }
+
+  async function createRide() {
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/create`, {
+        pickup,
+        destination,
+        vehicleType
+    }, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+
+
+}
 
 
 
@@ -144,7 +170,6 @@ const Home = () => {
       <img className='w-20 mb-2 rounded-full absolute left-5 top-5' src={NovaRide_logo} alt="NovaRide_logo" />
       <div>
         <img className='h-screen w-full object-cover ' src={Home_Img} alt="" />
-
       </div>
       <div className='flex flex-col justify-end h-screen absolute top-0 w-full'>
         <div className='h-[30%] p-5 bg-white relative'>
@@ -195,16 +220,32 @@ const Home = () => {
 
         </div>
       </div>
-      <div ref={vehiclePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white p-3 px-3 py-12'>
-        <Vehiclepanel setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel} />
+      <div ref={vehiclePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-10 pt-12'>
+                <Vehiclepanel
+                    selectVehicle={setVehicleType}
+                    fare={fare}
+                    setConfirmRidePanel={setConfirmRidePanel}
+                    setVehiclePanel={setVehiclePanel} />
+      </div>
+      <div ref={confirmRidePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12'>
+                <ConfirmRide
+                    createRide={createRide}
+                    pickup={pickup}
+                    destination={destination}
+                    fare={fare}
+                    vehicleType={vehicleType}
 
+                    setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound} />
       </div>
-      <div ref={confirmRidePanelRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white p-3 px-3 py-6 pt-12'>
-        <ConfirmRide setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound} />
-      </div>
-      <div ref={vehicleFoundRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white p-3 px-3 py-6 pt-12'>
-        <LookingForDriver setVehicleFound={setVehicleFound} />
-      </div>
+      <div ref={vehicleFoundRef} className='fixed w-full z-10 bottom-0 translate-y-full bg-white px-3 py-6 pt-12'>
+                <LookingForDriver
+                    createRide={createRide}
+                    pickup={pickup}
+                    destination={destination}
+                    fare={fare}
+                    vehicleType={vehicleType}
+                    setVehicleFound={setVehicleFound} />
+            </div>
       <div ref={waitingForDriverRef} className='fixed w-full z-10 bottom-0 px-3 py-6 pt-12'>
         <WaitingForDriver setWaitingForDriver={setWaitingForDriver} />
       </div>
