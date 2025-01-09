@@ -1,7 +1,7 @@
 import NovaRide_logo from '../assets/NovaRide_logo.webp'
 import axios from 'axios'
 import Home_Img from '../assets/Home_Img.webp'
-import React, { useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import 'remixicon/fonts/remixicon.css'
@@ -10,6 +10,9 @@ import Vehiclepanel from '../components/Vehiclepanel'
 import ConfirmRide from '../components/ConfirmRide'
 import LookingForDriver from '../components/LookingForDriver'
 import WaitingForDriver from '../components/WaitingForDriver'
+import { SocketContext } from '../context/SocketContext'
+import { UserDataContext } from '../context/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const [pickup, setPickup] = useState('')
@@ -30,6 +33,13 @@ const Home = () => {
   const waitingForDriverRef = useRef(null)
   const [ fare, setFare ] = useState({})
   const [ vehicleType, setVehicleType ] = useState(null)
+
+  const { socket } = useContext(SocketContext)
+  const { user } = useContext(UserDataContext)
+
+  useEffect(() => { 
+    socket.emit("join", { userType: "user", userId: user._id })
+  }, [ user ])
 
   const handlePickupChange = async (e) => {
     setPickup(e.target.value)
