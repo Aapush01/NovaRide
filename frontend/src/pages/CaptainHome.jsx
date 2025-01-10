@@ -19,13 +19,10 @@ const CaptainHome = () => {
   const { socket } = useContext(SocketContext)
   const {  captain } = useContext(CaptainDataContext)
 
-  useEffect(() => {
+  useEffect(() => { 
     console.log(captain)
-    socket.emit("joiin", {
-        userId: captain._id,
-        userType: 'captain'
-    })
-  },[])
+    socket.emit("join", { userType: "captain", userId: captain._id })
+  }, [])
 
   useGSAP(() => {
     if (ridePopUpPanel) {

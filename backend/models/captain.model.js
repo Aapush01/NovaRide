@@ -29,8 +29,9 @@ const captainSchema = new mongoose.Schema({
         select: false,
     }, 
 
-    sockerId: {
+    socketId: {
         type: String,
+        default: null,
     },
 
     status: {
