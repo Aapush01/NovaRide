@@ -1,11 +1,13 @@
 import NovaRide_logo from '../assets/NovaRide_logo.webp'
 import Home_Img from '../assets/Home_Img.webp'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import CaptainDetails from '../components/CaptainDetails'
 import RidePopUp from '../components/RidePopUp'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ConfirmRidePopUp from '../components/ConfirmRidePopUp'
+import { SocketContext } from '../context/SocketContext'
+import { CaptainDataContext } from '../context/CaptainContext'
 
 
 const CaptainHome = () => {
@@ -13,6 +15,17 @@ const CaptainHome = () => {
   const ridePopUpPanelRef = useRef(null)
   const [confirmRidePopUp, setConfirmRidePopUp] = useState(false)
   const confirmRidePopUpRef = useRef(null)
+
+  const { socket } = useContext(SocketContext)
+  const {  captain } = useContext(CaptainDataContext)
+
+  useEffect(() => {
+    console.log(captain)
+    socket.emit("joiin", {
+        userId: captain._id,
+        userType: 'captain'
+    })
+  },[])
 
   useGSAP(() => {
     if (ridePopUpPanel) {
