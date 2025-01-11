@@ -17,10 +17,9 @@ const CaptainHome = () => {
   const confirmRidePopUpRef = useRef(null)
 
   const { socket } = useContext(SocketContext)
-  const {  captain } = useContext(CaptainDataContext)
+  const { captain } = useContext(CaptainDataContext)
 
-  useEffect(() => { 
-    console.log(captain)
+  useEffect(() => {  
     socket.emit("join", { userType: "captain", userId: captain._id })
   }, [])
 
