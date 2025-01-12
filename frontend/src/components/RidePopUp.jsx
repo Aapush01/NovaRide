@@ -10,9 +10,9 @@ const RidePopUp = (props) => {
             <div className='flex items-center justify-between mt-4 bg-yellow-400 rounded-lg p-3'>
                 <div className='flex items-center gap-3'>
                     <img className='w-16 h-16 rounded-full object-cover' src="https://imgs.search.brave.com/xkaxx3IhWSDjuuaMfGzJQnejF3vct-cSVuih64ZLmGs/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jbGlw/YXJ0LWxpYnJhcnku/Y29tL2ltYWdlX2dh/bGxlcnkyL0hhcHB5/LUdpcmwtRnJlZS1Q/TkctSW1hZ2UucG5n" alt="" />
-                    <h2 className='text-xl font-medium'>Aishwarama</h2>
+                    <h2 className='text-xl font-medium'>{props.ride?.user.fullName.firstName + " " + props.ride?.user.fullName.lastName}</h2>
                 </div>
-                <h5 className='text-lg font-medium'>3.4 KM</h5>
+                <h5 className='text-lg font-medium'>1.4 KM</h5>
             </div>
 
             <div className='flex flex-col justify-between items-center gap-2'>
@@ -21,20 +21,20 @@ const RidePopUp = (props) => {
                         <i className="text-lg ri-user-location-line"></i>
                         <div>
                             <h3 className='text-lg font-semibold'>432/14-A</h3>
-                            <p className='text-sm -mt-1 text-gray-600'>Vashi, Navi Mumbai</p>
+                            <p className='text-sm -mt-1 text-gray-600'>{props.ride?.pickup}</p>
                         </div>
                     </div>
                     <div className='flex items-center gap-3 p-2 border-b-2'>
                         <i className="text-lg ri-map-pin-line"></i>
                         <div>
                             <h3 className='text-lg font-semibold'>432/14-A</h3>
-                            <p className='text-sm -mt-1 text-gray-600'>Vashi, Navi Mumbai</p>
+                            <p className='text-sm -mt-1 text-gray-600'>{props.ride?.destination}</p>
                         </div>
                     </div>
                     <div className='flex items-center gap-3 p-2 border-b-2'>
                         <i className="text-lg ri-currency-line"></i>
                         <div>
-                            <h3 className='text-lg font-semibold'>₹195.50</h3>
+                            <h3 className='text-lg font-semibold'>₹{props.ride?.fare}</h3>
                             <p className='text-sm -mt-1 text-gray-600'>Cash Cash</p>
                         </div>
                     </div>
@@ -50,6 +50,7 @@ const RidePopUp = (props) => {
                     <div>
                         <button onClick={() => {
                             props.setConfirmRidePopUp(true)
+                            props.confirmRide()
                         }} className='w-full bg-green-600 p-2 px-8 text-white text-lg font-semibold rounded-lg'>
                             Accept
                         </button>

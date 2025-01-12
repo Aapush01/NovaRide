@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import NovaRide_logo from '../assets/NovaRide_logo.webp'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import FinishRide from '../components/FinishRide'
 import gsap from 'gsap'
@@ -9,6 +9,8 @@ import Map from '../components/Map'
 const CaptainRiding = (props) => {
   const [finishRidePanel, setFinishRidePanel] = useState(false)
   const finishRidePanelRef = useRef(null)
+  const location = useLocation()
+  const rideData = location.state?.ride
 
 
   useGSAP(() => {
