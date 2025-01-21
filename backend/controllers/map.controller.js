@@ -23,14 +23,14 @@ module.exports.getDistanceTime = async (req, res, next) => {
     try {
         const errors = validationResult(req);
         if(!errors.isEmpty()) {
-            return res.status(400).json({ errors: ererros.array() });
+            return res.status(400).json({ errors: errors.array() });
         }
 
         const { origin, destination } = req.query;
 
-        const distnaceTime = await mapService.getDistanceTime(origin, destination);
+        const distanceTime = await mapService.getDistanceTime(origin, destination);
 
-        res.status(200).json(distnaceTime);
+        res.status(200).json(distanceTime);
 
     } catch (err) {
         console.error(err);

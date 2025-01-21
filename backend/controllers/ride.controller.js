@@ -88,7 +88,7 @@ module.exports.startRide = async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { rideId, otp } = req.body;
+    const { rideId, otp } = req.query;
 
     try {
         const ride = await rideService.startRide({ rideId, otp, captain: req.captain });
