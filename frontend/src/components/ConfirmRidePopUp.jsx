@@ -31,7 +31,7 @@ const ConfirmRidePopUp = (props) => {
             <h5
                 className="p-1 text-center w-[93%] absolute top-0"
                 onClick={() => {
-                    props.setConfirmRidePopUp(false);
+                    props.setRidePopupPanel(false);
                 }}
             >
                 <i className="text-3xl text-gray-600 ri-arrow-down-wide-fill"></i>
@@ -80,7 +80,7 @@ const ConfirmRidePopUp = (props) => {
                             onChange={(e) => setOtp(e.target.value)}
                             required
                             type="text"
-                            placeholder=" Enter OTP"
+                            placeholder="Enter OTP"
                             className="bg-[#efefef] rounded mt-4 px-8 py-2 border w-full text-lg placeholder:text-base"
                         />
                         {/* {error && <p className="text-red-600 text-sm mt-2">{error}</p>} */}

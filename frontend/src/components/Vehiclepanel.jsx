@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
-const Vehiclepanel = (props) => {
+const VehiclePanel = (props) => {
     return (
         <div>
             <h5 className='p-1 text-center w-[93%] absolute top-0 ' onClick={() => {
@@ -48,4 +48,4 @@ const Vehiclepanel = (props) => {
     )
 }
 
-export default Vehiclepanel
+export default VehiclePanel

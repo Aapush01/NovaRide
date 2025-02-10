@@ -4,7 +4,6 @@ import { Link, useLocation } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import FinishRide from '../components/FinishRide'
 import gsap from 'gsap'
-import Map from '../components/Map'
 
 const CaptainRiding = (props) => {
   const [finishRidePanel, setFinishRidePanel] = useState(false)
